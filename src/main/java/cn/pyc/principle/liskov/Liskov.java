@@ -27,6 +27,7 @@ class A {
 
 class B extends A {
     //此处重写了fun1方法
+    @Override
     public int fun1(int a, int b) {
         return a + b;
     }
