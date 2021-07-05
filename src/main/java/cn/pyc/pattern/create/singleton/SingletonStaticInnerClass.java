@@ -1,5 +1,8 @@
 package cn.pyc.pattern.create.singleton;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 /**
  * @author pi
  * @date 2021/07/05 00:15:54
@@ -13,6 +16,7 @@ public class SingletonStaticInnerClass {
     //静态内部类，在外部类加载时，并不会加载
     private static class SingletonInstance {
         private final static SingletonStaticInnerClass instance = new SingletonStaticInnerClass();
+
     }
 
     //调用时只会实例化一次
