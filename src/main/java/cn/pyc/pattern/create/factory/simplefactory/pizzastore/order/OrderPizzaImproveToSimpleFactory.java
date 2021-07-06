@@ -14,32 +14,33 @@ import java.io.InputStreamReader;
  * @date 2021/07/06 00:07:36
  **/
 @SuppressWarnings({"all"})
-public class OrderPizza {
+public class OrderPizzaImproveToSimpleFactory {
 
-    public OrderPizza() {
-        Pizza pizza = null;
-        //订购pizza的类型
-        String orderType;
+    Pizza pizza = null;
+    SimpleFactory simpleFactory;
+
+    //聚合关系
+    public OrderPizzaImproveToSimpleFactory(SimpleFactory simpleFactory) {
+        setSimpleFactory(simpleFactory);
+    }
+
+    public void setSimpleFactory(SimpleFactory simpleFactory) {
+        this.simpleFactory = simpleFactory;
+        String orderType = "";//用户输入披萨类型
 
         do {
             orderType = getOrderPizzaType();
-            if ("chicken".equals(orderType)) {
-                pizza = new ChickenPizza();
-            } else if ("cheese".equals(orderType)) {
-                pizza = new CheesePizza();
-            } else if ("pepper".equals(orderType)) {
-                pizza = new PepperPizza();
-            } else {
-                break;
+            pizza = this.simpleFactory.createPizza(orderType);
+
+            if (pizza != null) {
+                pizza.prepare();
+                pizza.bake();
+                pizza.cut();
+                pizza.box();
             }
-            pizza.setName(orderType);
-            //制作pizza
-            pizza.prepare();
-            pizza.bake();
-            pizza.cut();
-            pizza.box();
         } while (true);
     }
+
 
     private String getOrderPizzaType() {
         try {
