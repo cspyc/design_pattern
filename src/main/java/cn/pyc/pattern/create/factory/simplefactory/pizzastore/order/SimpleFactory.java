@@ -8,6 +8,7 @@ import cn.pyc.pattern.create.factory.simplefactory.pizzastore.pizza.*;
  * 简单工厂类
  **/
 public class SimpleFactory {
+
     public Pizza createPizza(String orderType) {
         System.out.println("使用简单工厂模式");
 

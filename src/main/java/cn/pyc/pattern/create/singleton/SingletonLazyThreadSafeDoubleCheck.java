@@ -12,7 +12,9 @@ public class SingletonLazyThreadSafeDoubleCheck {
     private SingletonLazyThreadSafeDoubleCheck() {
     }
 
-    //使用时才创建，懒汉式
+    /**
+     * 使用时才创建，懒汉式
+     */
     public static SingletonLazyThreadSafeDoubleCheck getInstance() {
         if (instance == null) {
             synchronized (SingletonLazyThreadSafeDoubleCheck.class) {
